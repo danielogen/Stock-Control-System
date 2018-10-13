@@ -6,9 +6,22 @@
 ##
 ##
 
-## Student's Name:
-## Student's Number:
+# No. 0
 
+"""
+Group members:
+    Name:       OGENRWOT DANIEL
+    Reg:        2018/HD05/1977U
+    StudentNo:  1800739579
+
+    Name:       KAFEERO FRANK
+    Reg:        2018/HD05/1955U
+    StudentNo:  1800737720
+
+    Name:       LUKAMUZI SIMON
+    Reg:        2018/HD05/1965U
+    StudentNo:  1800738413
+"""
 from datetime import date
 
 """A stock control system"""
