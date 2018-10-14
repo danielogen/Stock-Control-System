@@ -108,7 +108,9 @@ class StockItem(object):
 
     def setQuantity(self, quantity):
         self.quantity = quantity
-
+        # No. 9
+    def restockQuantity(self, quantity):
+        self.quantity = self.quantity + quantity
         
     
 class StockControl(object):
