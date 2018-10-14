@@ -109,48 +109,50 @@ class StockControl(object):
         #and call the 'sell' method of the relevant item
         #return an error if the product isn't found
         pass
-        
-
-#Below is some code to test the classes. Feel free
-#to alter this test-code to test your submission
-#more thoroughly.
-
-#Populate the stock control system
+       
+# Below is some code to test the classes. Feel free
+# to alter this test-code to test your submission
+# more thoroughly.
+# Populate the stock control system
 stockctrl = StockControl()
-stockctrl.addStockType(StockItem('Bag of Coffee','1234',23))
-stockctrl.addStockType(StockItem('Salt and Vinegar Crisps','4434',3))
-stockctrl.addStockType(StockItem('Museli','0191',2))
-stockctrl.addStockType(StockItem('Flour (1kg)','1191',24))
-#uncomment to test the PerishableStockItem class for milk
-#stockctrl.addStockType(PerishableStockItem('Milk (500ml)','1191',24,date(2013, 10, 26)))
-stockctrl.addStockType(StockItem('Cookies','2312',6))
-stockctrl.addStockType(StockItem('Bags of grapes','1111',0))
+stockctrl.addStockType(StockItem('Bag of Coffee', '1234', 2))  # 23
+stockctrl.addStockType(StockItem('Salt and Vinegar Crisps', '4434', 5))  # 3
+stockctrl.addStockType(StockItem('Museli', '0191', 5))  # 2
+stockctrl.addStockType(StockItem('Flour (1kg)', '1191', 24))
+# uncomment to test the PerishableStockItem class for milk
+# stockctrl.addStockType(PerishableStockItem('Milk (500ml)', '1191', 24, date(2013, 10, 10)))
+stockctrl.addStockType(StockItem('Cookies', '2312', 6))
+stockctrl.addStockType(StockItem('Bags of grapes', '1111', 6))  # 0
 
-#Find out what needs restocking
+# Find out what needs restocking
 print("Items that need restocking:\n")
 print(stockctrl.listRestock())
 
-#Sell some items
+
+# Sell some items
 print("\n")
 print("Testing sales:")
-for barcode in ['1234','2312','1112','1111','2312','1191','0191','2312']:
+for barcode in ['1234', '2312', '1112', '1111', '2312', '1191', '0191', '2312']:
     try:
-        stockctrl.sellStock(barcode)    
-    except SoldOutOfStockError as (e):
-        print("Stock sold which isn't in stock:" + e.item.toString())
-    except ItemNotFoundError as (e):
+        stockctrl.sellStock(barcode)
+    except SoldOutOfStockError as e:
+        print("Stock sold which isn't in stock: " + e.item)
+    except ItemNotFoundError as e:
         print("Item not found:" + e.barcode)
 
 print("\nItems that need restocking:\n")
 print(stockctrl.listRestock())
 
-#Uncomment this section to test the restock method
-#print("\nRestocking...\n")
-#for barcode in ['1111','0191','2312','4434','2312','9999']:
-#    try:
-#        stockctrl.restock(barcode,10)    
-#    except ItemNotFoundError as (e):
-#        print("Item not found:" + e.barcode)
+# Uncomment this section to test the restock method
+print("\nRestocking...\n")
+for barcode in ['1111', '0191', '2312', '4434', '2312', '9999']:
+    try:
+        stockctrl.restock(barcode, 10)
+    except ItemNotFoundError as e:
+        print("Item not found:" + e.barcode)
     
-print("\nItems that need restocking:\n")
-print(stockctrl.listRestock())
+# print("\nItems that need restocking:\n")
+# print(stockctrl.listRestock())
+
+# p1 = PerishableStockItem('Milk (500ml)', '1191', 10, date(2019, 10, 2))
+# print(p1.toString())
