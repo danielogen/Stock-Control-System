@@ -151,7 +151,7 @@ class StockControl(object):
     def sellStock(self, barcode):
         """Process the sale of one item"""
         # TODO
-        # hint: look through the list of items,
+        # hint: Look through the list of items,
         # and call the 'sell' method of the relevant item
         # return an error if the product isn't found
         # No. 7
