@@ -90,6 +90,15 @@ class StockItem(object):
             raise SoldOutOfStockError(self.name)
         else:
             return 1
+        # item getters
+    def getName(self):
+        return self.name
+
+    def getBarcode(self):
+        return self.barcode
+
+    def getQuantity(self):
+        return self.quantity
 
         
     
