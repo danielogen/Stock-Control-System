@@ -50,7 +50,7 @@ class ItemNotFoundError(StockControlSystemError):
 
 
 class StockItem(object):
-    """Provides the basic stock item class for the stock control system"""
+    """Provides the basic stock item class for the stock control system. This keeps track of the particulars of the items in the stock"""
     
     def __init__(self, name, barcode, quantity):
         """Provides the basic stock item class for the stock control system
