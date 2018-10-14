@@ -207,7 +207,18 @@ class PerishableStockItem(StockItem):
             return True
         else:
             return False
+    
+    # No. 14
+    # Qverride the toString to display sellbydate. using HINT 2
+    def toString(self):
+        """Returns a string describing the stock item, its barcode and the quantity remaining"""
+        # TODO complete this method
+        # No. 1
+        description = "Stock Name: " + self.name + "\tBarcode: " + self.barcode + \
+            "\tQty remaining: " + str(self.quantity) + "\tSell by: " + str(self.sellbydate)
         
+        return description  
+    
 # Below is some code to test the classes. Feel free
 # to alter this test-code to test your submission
 # more thoroughly.
