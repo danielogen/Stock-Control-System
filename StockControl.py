@@ -179,7 +179,17 @@ class StockControl(object):
                 print("Item Restocked Successfully: New Qty: ", StockItem.getQuantity(item))
         if invalid_barcode == 0:
             raise ItemNotFoundError(barcode)
-       
+
+# No. 10 & No. 11
+class PerishableStockItem(StockItem):
+    def __init__(self, name, barcode, quantity, sellbydate):
+        super(PerishableStockItem, self).__init__(name, barcode, quantity)
+        self.sellbydate = sellbydate
+        self.name = name
+        self.barcode = barcode
+        self.quantity = quantity
+  
+
 # Below is some code to test the classes. Feel free
 # to alter this test-code to test your submission
 # more thoroughly.
