@@ -193,6 +193,20 @@ class PerishableStockItem(StockItem):
     def pastSellByDate(self):
         if date.today() > self.sellbydate:
             return True
+    
+    # No. 13
+    # Override needRestock
+    def needRestock(self):
+        """Returns true if this item needs restocking (i.e. the quantity<a threshold)"""
+        # TODO check if the quantity<threshold and return true if it is
+        # we'll set for now the threshold at *five* items
+        # so we need to check if self.quantity is less than five.
+
+        threshold = 5
+        if self.quantity < threshold or PerishableStockItem.pastSellByDate(self):
+            return True
+        else:
+            return False
         
 # Below is some code to test the classes. Feel free
 # to alter this test-code to test your submission
