@@ -99,6 +99,15 @@ class StockItem(object):
 
     def getQuantity(self):
         return self.quantity
+    # item setters
+    def setName(self, name):
+        self.name = name
+
+    def setBarcode(self, barcode):
+        self.barcode = barcode
+
+    def setQuantity(self, quantity):
+        self.quantity = quantity
 
         
     
