@@ -93,7 +93,7 @@ class StockControl(object):
     
     def __init__(self):
         """The stock control system"""
-        # note: we could have implemented the list as a dictionary, with
+        # note: We could have implemented the list as a dictionary, with
         # the barcode as the key, however if the barcode for the item
         # changes we might have problems.
         self.stocklist = []  # a list of stock items
