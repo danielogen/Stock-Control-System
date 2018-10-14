@@ -65,7 +65,10 @@ class StockItem(object):
     def toString(self):
         """Returns a string describing the stock item, its barcode and the quantity remaining"""
         #TODO complete this method
-        pass 
+        description = "Stock Name: " + self.name + "\tBarcode: " + self.barcode + \
+            "\tQty remaining: " + str(self.quantity)
+
+        return description
     
     def needRestock(self):
         """Returns true if this item needs restocking (i.e. the quantity<a threshold)"""
