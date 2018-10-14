@@ -188,8 +188,12 @@ class PerishableStockItem(StockItem):
         self.name = name
         self.barcode = barcode
         self.quantity = quantity
-  
-
+        
+    # No. 12
+    def pastSellByDate(self):
+        if date.today() > self.sellbydate:
+            return True
+        
 # Below is some code to test the classes. Feel free
 # to alter this test-code to test your submission
 # more thoroughly.
