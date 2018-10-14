@@ -81,34 +81,71 @@ class StockItem(object):
         pass
     
 class StockControl(object):
-    """The stock control system"""
+     """The stock control system"""
     
     def __init__(self):
         """The stock control system"""
-        #note: we could have implemented the list as a dictionary, with
-        #the barcode as the key, however if the barcode for the item
-        #changes we might have problems.
-        self.stocklist = [] #a list of stock items        
+        # note: we could have implemented the list as a dictionary, with
+        # the barcode as the key, however if the barcode for the item
+        # changes we might have problems.
+        self.stocklist = []  # a list of stock items
     
     def listRestock(self):
         """Return a string listing items that need restocking"""
-        #TODO return a list of items that need restocking
-        #hint: Need to loop through the stocklist
-        pass
-    
-    def addStockType(self,item):
+        # TODO return a list of items that need restocking
+        # hint: Need to loop through the stocklist
+        # No. 3
+        flag = 0
+        mystr = ""
+        for item in self.stocklist:
+            if StockItem.needRestock(item):
+                mystr = mystr + StockItem.getName(item) + '\n'
+                flag = flag + 1  # item that needs restocking found
+
+        # No. 4
+        if flag == 0:
+            return "All items stocked"
+        else:
+            return mystr
+
+    def addStockType(self, item):
         """Add an item to the stock list"""
-        #TODO
-        #hint: add an item to this.stocklist
-        pass
+        # TODO
+        # hint: add an item to this.stocklist
+        # No. 6
+        self.stocklist.append(item)
     
-    def sellStock(self,barcode):
+    def sellStock(self, barcode):
         """Process the sale of one item"""
-        #TODO
-        #hint: look through the list of items,
-        #and call the 'sell' method of the relevant item
-        #return an error if the product isn't found
-        pass
+        # TODO
+        # hint: look through the list of items,
+        # and call the 'sell' method of the relevant item
+        # return an error if the product isn't found
+        # No. 7
+        invalid_barcode = 0
+        for item in self.stocklist:
+            if barcode == StockItem.getBarcode(item):
+                invalid_barcode = 1
+                if StockItem.sell(item) == 1:
+                    # StockItem.setQuantity(StockItem, 0) find away of reducing the stock quantity
+                    newQty = StockItem.getQuantity(item) - 1  # We reduce stock by one per item solid
+                    StockItem.setQuantity(item, newQty)
+                    print("Sold: Successfully: Qty remaining: ", StockItem.getQuantity(item))
+                else:
+                    raise SoldOutOfStockError()
+        if invalid_barcode == 0:
+            raise ItemNotFoundError(barcode)
+
+    # No. 9
+    def restock(self, barcode, quantity):
+        invalid_barcode = 0
+        for item in self.stocklist:
+            if barcode == StockItem.getBarcode(item):
+                invalid_barcode = 1
+                StockItem.restockQuantity(item, quantity) # We set new quantity (current + new)
+                print("Item Restocked Successfully: New Qty: ", StockItem.getQuantity(item))
+        if invalid_barcode == 0:
+            raise ItemNotFoundError(barcode)
        
 # Below is some code to test the classes. Feel free
 # to alter this test-code to test your submission
