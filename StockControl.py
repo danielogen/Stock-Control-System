@@ -144,14 +144,14 @@ class StockControl(object):
     def addStockType(self, item):
         """Add an item to the stock list"""
         # TODO
-        # hint: add an item to this.stocklist
+        # hint: Add an item to this.stocklist
         # No. 6
         self.stocklist.append(item)
     
     def sellStock(self, barcode):
         """Process the sale of one item"""
         # TODO
-        # hint: Look through the list of items,
+        # hint: Look through the list of items
         # and call the 'sell' method of the relevant item
         # return an error if the product isn't found
         # No. 7
