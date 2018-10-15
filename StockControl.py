@@ -99,6 +99,7 @@ class StockItem(object):
 
     def getQuantity(self):
         return self.quantity
+    
     # item setters
     def setName(self, name):
         self.name = name
@@ -108,6 +109,7 @@ class StockItem(object):
 
     def setQuantity(self, quantity):
         self.quantity = quantity
+        
         # No. 9
     def restockQuantity(self, quantity):
         self.quantity = self.quantity + quantity
@@ -209,7 +211,7 @@ class PerishableStockItem(StockItem):
             return False
     
     # No. 14
-    # Qverride the toString to display sellbydate. using HINT 2
+    # Qverride the toString to display sellbydate.
     def toString(self):
         """Returns a string describing the stock item, its barcode and the quantity remaining"""
         # TODO complete this method
